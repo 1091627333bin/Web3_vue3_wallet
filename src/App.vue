@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Button></Button>
+    <accountList :walletInfo="walletInfo"></accountList>
+    
+  </div>
+  
 </template>
+<script setup>
+import { ref ,onMounted, reactive} from 'vue'
+import Button from './components/Button.vue'
+import accountList from './components/accountList.vue';
+import store2 from 'store2'
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+const walletInfo = reactive(store2.get('walletInfo') || [] )
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+onMounted(() => {
+  
+})
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style  lang="less">
+  body{
+    padding: 10px;
+  }
 </style>
